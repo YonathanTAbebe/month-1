@@ -1,0 +1,40 @@
+#intermediate python
+class Vehicle:
+    def __init__(self, make, model):
+        self.__make = make  
+        self.__model = model  
+
+    def get_make(self):
+        return self.__make
+
+    def get_model(self):
+        return self.__model
+
+    def describe(self):
+        return f"This is a vehicle: {self.__make} {self.__model}."
+
+
+class Car(Vehicle):
+    def __init__(self, make, model, num_doors):
+        super().__init__(make, model)
+        self.num_doors = num_doors
+
+    def describe(self):  
+        return f"This is a car: {self.get_make()} {self.get_model()} with {self.num_doors} doors."
+
+
+class Bike(Vehicle):
+    def __init__(self, make, model, bike_type):
+        super().__init__(make, model)
+        self.bike_type = bike_type
+
+    def describe(self): 
+        return f"This is a {self.bike_type} bike: {self.get_make()} {self.get_model()}."
+
+vehicles = [
+    Car("Toyota", "Corolla", 4),
+    Bike("Yamaha", "R15", "Sport"),
+]
+
+for vehicle in vehicles:
+    print(vehicle.describe()) 
